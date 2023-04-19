@@ -656,10 +656,10 @@ def start():
         go = input('> ')
         if go == '1':
             print('-' * 65)
-            print('El cuestionario comenzará oficialmente en 30 segundos, por favor lea y entienda lo siguiente cuidadosamente')
+            print('El cuestionario comenzará oficialmente en 15 segundos, por favor lea y entienda lo siguiente cuidadosamente')
             time.sleep(3)
             print(Ins2)
-            time.sleep(27)
+            time.sleep(12)
             break
         elif go == '0':
             print('Gracias por utilizar este programa, ¡adiós!')
