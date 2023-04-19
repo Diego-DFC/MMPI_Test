@@ -1,22 +1,22 @@
 # MMPI_Test
-明尼苏达多相人格测试（MMPI）Python3命令行版<br>
+Inventario Multifásico de Personalidad de Minnesota (MMPI) versión línea de comandos Python3<br>
 
-明尼苏达多项人格测验（Minnesota Multiphasic Per-sonality Inventory，简称MMPI）是由明尼苏达大学教授哈瑟韦（S．R．Hathaway）和麦金力（J．C．Mckinley）于40年代制定的，是迄今应用极广、颇富权威的一种纸-笔式人格测验。该问卷的制定方法是分别对正常人和精神病人进行预测，以确定在哪些条目上不同人有显著不同的反应模式，因此该模型可以用于测试正常人的人格类型，也可以用于区分正常人和精神疾病患者。经过数十年的改良与修订，纪术茂先生带领其团队于1980年正式推出了基于中国常模的MMPI，虽然距今年代久远可能不能完全适用于现代中国人的人格分析，但根据实际应用情况仍具有较高的准确性和临床价值。<br>
+El Inventario Multifásico de Personalidad de Minnesota (MMPI) fue desarrollado por S. R. Hathaway y J. C. McKinley, profesores de la Universidad de Minnesota, en la década de 1940 y es uno de los tests de personalidad con lápiz de papel más utilizados y autorizados hasta la fecha. -Fue desarrollado en la década de 1940 por S. R. Hathaway y J. C. Mckinley. El cuestionario se desarrolló haciendo predicciones separadas para personas normales y enfermos mentales con el fin de determinar qué ítems tenían patrones de respuesta significativamente diferentes, de modo que el modelo pudiera utilizarse para evaluar los tipos de personalidad en personas normales y para distinguir entre personas normales y enfermos mentales. Tras décadas de perfeccionamiento y revisión, el Sr. Ji Jumao dirigió a su equipo para introducir formalmente el MMPI basado en el modelo normativo chino en 1980. Aunque puede no ser totalmente aplicable al análisis de la personalidad de los chinos modernos tras el paso del tiempo, sigue teniendo un alto grado de precisión y valor clínico basado en aplicaciones prácticas.。<br>
 
-## 本程序的主要功能包括
-1. 完整的测试内容
-2. 记录原始问卷
-3. 生成统计分报表
-4. 生成人格剖面图  
+## Las principales características de este programa son
+1. Completar el contenido de la prueba
+2. grabar el cuestionario original
+3. generar hojas de puntuación estadística
+4. generar perfiles de personalidad
 
-## 本程序所需的库包括： 
-1. time（用于测试计时与程序内定时）
-2. matplotlib（用于绘制人格剖面图）
-3. openpyxl（用于形成评分表格）
+## Las bibliotecas necesarias para este programa incluyen 
+1. time (para cronometrar las pruebas y el programa)
+2. matplotlib (para trazar perfiles de personalidad)
+3. openpyxl (para formar escalas de puntuación)
 
-### 注意：本程序需在专业人士指导下使用并解读，其结果才具有临床价值。  
+### Nota: Este procedimiento debe utilizarse e interpretarse bajo orientación profesional para que los resultados tengan valor clínico.  
 
-## 相关资料与引用文献：
+## Material relacionado y citas：
 
 >[1] Schiele, B. C.; Baker, A. B.; Hathaway, S. R. (1943). "The Minnesota multiphasic personality inventory"[J]. Journal-Lancet (63): 292–297. ISSN 0096-0233.<br>
 >[2] Hathaway, S. R., & McKinley, J. C. (1940). A multiphasic personality schedule(Minnesota): I. Construction of the schedule[J]. Journal of Psychology, 10, 249-254.<br>
@@ -24,4 +24,3 @@
 >[4] McKinley, J. C, & Hathaway, S. R. (1940). A multiphasic personality schedule (Minnesota): III. The measurement of symptomatic depression[J]. Journal of Psychology, 14, 73-84.<br>
 >[5] McKinley, J. C, & Hathaway, S. R. (1942). A multiphasic personality schedule (Minnesota): IV. Psychasthenia[J]. Journal of Applied Psychology, 26, 614-624.<br>
 >[6] McKinley, J. C, & Hathaway, S. R. (1944). A multiphasic personality schedule (Minnesota): V. Hysteria, Hypomania, and Psychopathic Deviate[J]. Journal of Applied Psychology, 28, 153-174.<br>
->[7] 纪术茂, 戴郑生. 明尼苏达多项人格调查表——最新研究与多类量表解释[M].北京: 科学出版社, 2004.  
