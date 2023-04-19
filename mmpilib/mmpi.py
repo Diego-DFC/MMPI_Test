@@ -33,7 +33,7 @@ from random import randint
 # 指导语
 # Instruction
 Ins1 = """-----------------------------------------------------------------
-                       明尼苏达多项人格测验                      
+            Test múltiple de personalidad de Minnesota                      
        Minnesota Multiphasic Per-sonality Inventory (MMPI)       
 -----------------------------------------------------------------
 Breve descripción: el Inventario de Personalidad Múltiple de Minnesota (MMPI) fue desarrollado por S. R. Hathaway y J. C. McKinley, profesores de la Universidad de Minnesota, en 1942.
@@ -698,28 +698,28 @@ def test():
 
     while 1:
         print('x1. Mi género es')
-        print('1. 男    0.女')
+        print('1. Hombre    0.Mujer')
         Sex = input('> ')
         if Sex == '1' or Sex == '0':
             break
         else:
-            print('输入错误请按照测验要求重新输入！')
+            print('Si se ha equivocado, vuelva a introducir los datos tal y como exige el cuestionario.')
             continue
 
     while 1:
         print('-' * 65)
-        print('x2. 请输入你的年龄')
+        print('x2. Introduzca su Edad')
         Age = input('> ')
 
         if str.isdigit(Age):
             if 13 <= int(Age) <= 70:
                 break
             else:
-                print('本测验不适用于该年龄范围，感谢使用！')
+                print('Este cuestionario no es aplicable a este rango de Edad, ¡gracias por utilizarlo!')
                 time.sleep(3)
                 exit(0)
         else:
-            print('输入错误请按照测验要求重新输入！')
+            print('Si se ha equivocado, vuelva a introducir los datos tal y como exige el cuestionario.')
             continue
 
     for i in range(len(Que)+1):
@@ -729,14 +729,14 @@ def test():
             else:
                 temp_que = str(i+1) + '. ' + (Que[i+1][Que[i+1].find('f') + 1:])
         elif i == len(Que):
-            temp_que = str(len(Que)+1) + '.' + '我保证是在专业人士指导下认真诚实地完成本次测验'
+            temp_que = str(len(Que)+1) + '.' + 'Garantizo que completará esta prueba con cuidado y honestidad bajo orientación profesional'
         else:
             temp_que = str(i+1) + '. ' + Que[i+1]
 
         while 1:
             print('-' * 65)
             print(temp_que)
-            print('1. 是    0. 否')
+            print('1. Sí    0. No')
             temp_ans = input('> ')
             # temp_ans = answer()  # for debug
             # print('> ' + str(temp_ans))  # for debug
@@ -747,11 +747,11 @@ def test():
             elif temp_ans == 'bomb':    # for debug
                 exit(0)
             else:
-                print('输入错误请按照测验要求重新输入！')
+                print('Si se ha equivocado, vuelva a introducir los datos tal y como exige el cuestionario.')
                 continue
 
     print('-' * 65)
-    print('测验结束，感谢您的配合！')
+    print('El cuestionario ha terminado, ¡gracias por su colaboración!')
     print('-' * 65)
 
 
@@ -822,7 +822,7 @@ def norm_select(sex):
     global Norm_M
     global Norm_SD
 
-    # 男性常模
+    # Hombre性常模
     # male norm
     if sex == '1':
         Norm_M = {
@@ -875,7 +875,7 @@ def norm_select(sex):
             'Re': 4.13,
             'Cn': 3.76
         }
-    # 女性常模
+    # Mujer性常模
     # female norm
     else:
         Norm_M = {
@@ -1160,7 +1160,7 @@ def scale_pd(ori_score=0, pro_score=0, pro_score_add_k=0):
 
 def scale_mf(ori_score=0, pro_score=0):
     """
-    临床量表-5 男子气/女子气 Mf
+    临床量表-5 Hombre子气/Mujer子气 Mf
     the score of Mf (masculinity-femininity) scale
 
     :param ori_score: original score
@@ -1169,13 +1169,13 @@ def scale_mf(ori_score=0, pro_score=0):
 
     :rtype: int, int
     """
-    # 男性女性化 Mf-m
+    # Hombre性Mujer性化 Mf-m
     if Sex == '1':
         temp_t = [4, 25, 69, 70, 74, 77, 78, 87, 92, 126, 132, 134, 140, 149, 179, 187, 203, 204, 217, 226, 231, 239,
                   261, 278, 282, 295, 297, 299]
         temp_f = [1, 19, 26, 28, 79, 80, 81, 89, 99, 112, 115, 116, 117, 120, 133, 144, 176, 198, 213, 214, 219, 221,
                   223, 229, 249, 254, 260, 262, 264, 280, 283, 300]
-    # 女性男性化 Mf-f
+    # Mujer性Hombre性化 Mf-f
     else:
         temp_t = [4, 25, 70, 74, 77, 78, 87, 92, 126, 132, 133, 134, 140, 149, 187, 203, 204, 217, 226, 239, 261, 278,
                   282, 295, 299]
@@ -1584,10 +1584,10 @@ def data_export():
 
     Note: Generate a '.xlsx' file to save the test information
     """
-    print('请输入被试者姓名')
+    print('Nombre')
     name = input('> ')
     wb = Workbook()
-    data_filename = time.strftime("%Y%m%d_%H%M_", time.localtime()) + name + '_MMPI测验'
+    data_filename = time.strftime("%Y%m%d_%H%M_", time.localtime()) + name + '_MMPI'
 
     font1 = Font(name='黑体', size=12)
     font2 = Font(name='宋体', size=12)
@@ -1598,31 +1598,31 @@ def data_export():
 
     # 表1，记录测验原始数据
     sheet1 = wb.active
-    sheet1.title = '测验原始数据'
-    sheet1['A1'] = '姓名'
+    sheet1.title = 'Datos brutos del cuestionario'
+    sheet1['A1'] = 'Nombre'
     sheet1['A1'].font = font1
     sheet1['A1'].alignment = alig1
-    sheet1['C1'] = '性别'
+    sheet1['C1'] = 'Género'
     sheet1['C1'].font = font1
     sheet1['C1'].alignment = alig1
-    sheet1['E1'] = '年龄'
+    sheet1['E1'] = 'Edad'
     sheet1['E1'].font = font1
     sheet1['E1'].alignment = alig1
     sheet1.merge_cells('A2:B2')
-    sheet1['A2'] = '题 目'
+    sheet1['A2'] = 'Título'
     sheet1['A2'].font = font1
     sheet1['A2'].alignment = alig1
     sheet1.merge_cells('C2:D2')
-    sheet1['C2'] = '回 答'
+    sheet1['C2'] = 'Respuesta'
     sheet1['C2'].font = font1
     sheet1['C2'].alignment = alig1
     sheet1['B1'] = name
     sheet1['B1'].font = font2
     sheet1['B1'].alignment = alig1
     if Sex == '1':
-        sex_name = '男'
+        sex_name = 'Hombre'
     else:
-        sex_name = '女'
+        sex_name = 'Mujer'
     sheet1['D1'] = sex_name
     sheet1['D1'].font = font2
     sheet1['D1'].alignment = alig1
@@ -1636,7 +1636,7 @@ def data_export():
             else:
                 temp_que = Que[i+1][Que[i+1].find('f') + 1:]
         elif i == len(Que):
-            temp_que = '我保证是在专业人士指导下认真诚实地完成本次测验'
+            temp_que = 'Garantizo que completaré esta prueba con cuidado y honestidad bajo orientación profesional'
         else:
             temp_que = Que[i+1]
 
@@ -1647,25 +1647,25 @@ def data_export():
         sheet1['B%d' % (i + 3)].font = font2
         sheet1['B%d' % (i + 3)].alignment = alig2
         if Ans[i+1] == '1':
-            temp_ans = '是'
+            temp_ans = 'Sí'
             sheet1['C%d' % (i + 3)].value = temp_ans
             sheet1['C%d' % (i + 3)].font = font2
             sheet1['C%d' % (i + 3)].alignment = alig1
         else:
-            temp_ans = '否'
+            temp_ans = 'No'
             sheet1['D%d' % (i + 3)].value = temp_ans
             sheet1['D%d' % (i + 3)].font = font2
             sheet1['D%d' % (i + 3)].alignment = alig1
 
     # 表2，记录测验分数
-    sheet2 = wb.create_sheet(title='测验分数')
-    sheet2['A1'] = '姓名'
+    sheet2 = wb.create_sheet(title='Resultados de las pruebas')
+    sheet2['A1'] = 'Nombre'
     sheet2['A1'].font = font1
     sheet2['A1'].alignment = alig1
-    sheet2['C1'] = '性别'
+    sheet2['C1'] = 'Género'
     sheet2['C1'].font = font1
     sheet2['C1'].alignment = alig1
-    sheet2['E1'] = '年龄'
+    sheet2['E1'] = 'Edad'
     sheet2['E1'].font = font1
     sheet2['E1'].alignment = alig1
     sheet2['B1'].value = name
@@ -1677,19 +1677,19 @@ def data_export():
     sheet2['F1'].value = Age
     sheet2['F1'].font = font4
     sheet2['F1'].alignment = alig1
-    sheet2['A2'] = '量表类别'
+    sheet2['A2'] = 'Categoría de escala'
     sheet2['A2'].font = font1
     sheet2['A2'].alignment = alig1
-    sheet2['B2'] = '原始分'
+    sheet2['B2'] = 'Partitura original'
     sheet2['B2'].font = font1
     sheet2['B2'].alignment = alig1
-    sheet2['C2'] = '标准分（不加K）'
+    sheet2['C2'] = 'Puntuación estándar (sin K añadida)'
     sheet2['C2'].font = font1
     sheet2['C2'].alignment = alig1
-    sheet2['D2'] = '标准分（加K）'
+    sheet2['D2'] = 'Puntuación estándar (más K)'
     sheet2['D2'].font = font1
     sheet2['D2'].alignment = alig1
-    sheet2['A3'] = '*其中Q量表仅记录矛盾题的数量'
+    sheet2['A3'] = '*donde la escala Q sólo registra el número de preguntas contradictorias'
     sheet2['A3'].font = font2
     sheet2['A3'].alignment = alig2
     scale_list = ['Q*', 'L', 'F', 'K', 'Hs', 'D', 'Hy', 'Pd', 'Mf', 'Pa', 'Pt', 'Sc', 'Ma', 'Si',
@@ -1726,7 +1726,7 @@ def data_export():
             sheet2['D%d' % (i + 4)].alignment = alig1
         else:
             pass
-    sheet2['E2'] = '两点编码'
+    sheet2['E2'] = 'Código de dos puntos'
     sheet2['E2'].font = font1
     sheet2['E2'].alignment = alig1
     sheet2['F2'].value = two_point
@@ -1734,5 +1734,5 @@ def data_export():
     sheet2['F2'].alignment = alig1
 
     wb.save(filename=data_filename + '.xlsx')
-    plt.title('%s MMPI剖析图 加K分校正T分（中国常模）' % name)
+    plt.title('%s Perfil MMPI más puntuación T positiva en K (norma china)' % name)
     plt.savefig(data_filename)
