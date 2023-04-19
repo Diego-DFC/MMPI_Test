@@ -24,7 +24,7 @@ a complete questionnaire.
 import time
 import matplotlib.pyplot as plt
 from openpyxl import Workbook
-from openpyxl.compat import range
+#from openpyxl.compat import range
 from openpyxl.styles import Font, Alignment
 
 # for debug
